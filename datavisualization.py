@@ -75,9 +75,11 @@ from PIL import Image
 # a =[]
 def data_visualization():
     count = 0
-    df = dataPrepocessing()
+    df_temp = dataPrepocessing()
+    c = [df_temp.columns[0],'Year','hg_ha_yield']
+    df = df_temp.drop(c,axis=1)
     data = df.select_dtypes("number").columns
-    col=len[data]
+    col=len(df_temp.columns)-len(c)
     for i in col:
         count += 1
         fig = px.box(data, y=i)
@@ -125,7 +127,7 @@ def data_visualization():
     # image_list.pop(0).save(r'./Student Performance Prediction#587.pdf', 'PDF',
     #                     save_all=True, append_images=image_list, resolution=100.0)  # TODO improve resolution
     
-    return df
+    return df_temp
 
 data_visualization()
 
