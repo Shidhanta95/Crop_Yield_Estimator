@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder,MinMaxScaler
-from datavisualisation import data_visualization
+from datavisualization import data_visualization
 import numpy as np 
 
 def outlierTreatment(df):
