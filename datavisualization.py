@@ -15,7 +15,7 @@ import plotly.figure_factory as ff
 import plotly.io as pio
 import io
 from PIL import Image
-
+import time
 # def visualisation():
 #     df = featureEngineering()
 
@@ -80,6 +80,7 @@ def data_visualization():
     df = df_temp.drop(c,axis=1)
     data = df.select_dtypes(include=["number"])
     col=list(data.columns)
+    t0 = time.time()
     for i in col:
         count += 1
         fig = px.box(data, y=i)
@@ -89,6 +90,11 @@ def data_visualization():
         fig.update_yaxes(showgrid=False,zeroline=False)
         fig.write_image(f"{count}_box_{i}.jpg")
         # a.append(fig)
+    t1 = time.time()
+    t = t1-t0
+    print("time taken for drawing box plot ",t)
+
+    t0 = time.time()
     for i in col:
         count += 1
         # temp = [data[i].values.astype(np.int64)]
@@ -103,6 +109,11 @@ def data_visualization():
         fig.update_yaxes(showgrid=False,zeroline=False)
         fig.write_image(f"{count}_dist_{i}.jpg")
         # a.append(fig)
+    t1 = time.time()
+    t = t1-t0
+    print("time taken for drawing dist ",t)
+
+    t0 = time.time()
     y=data.corr().columns.tolist()
     z=data.corr().values.tolist()
     z_text = np.around(z, decimals=4) # Only show rounded value (full value on hover)
@@ -111,6 +122,9 @@ def data_visualization():
     count += 1
     fig.write_image(f"{count}_heatmap.jpg")
     # a.append(fig)
+    t1 = time.time()
+    t = t1-t0
+    print("time taken for drawing heatmap ",t)
 
 
 

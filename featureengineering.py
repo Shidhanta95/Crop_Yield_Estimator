@@ -45,7 +45,12 @@ def featureEngineering():
     #delete this before uploading
     col = [df.columns[0],'Year','hg_ha_yield']
 
+    t0 = time.time()
     df = outlierTreatment(df)
+    t1 = time.time()
+    t = t1-t0
+    print("time taken for outlier treatment is ",t)
+
 
     #labels='hg/ha_yield'
     Y = df['hg_ha_yield']
