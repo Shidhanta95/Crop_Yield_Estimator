@@ -91,11 +91,11 @@ def data_visualization():
         # a.append(fig)
     for i in col:
         count += 1
-        temp = [data[i].values.astype(np.int64)]
-        vals = []
-        print(type(temp[0]))
-        for x in temp:
-            vals.append(int(x))
+        # temp = [data[i].values.astype(np.int64)]
+        # vals = []
+        # print(type(temp[0]))
+        # for x in temp:
+        #     vals.append(int(x))
         fig = ff.create_distplot([data[i].values],group_labels=[i])
         fig.update_layout(template='plotly_dark')
         #fig.update_layout(plot_bgcolor = "plotly_dark")
