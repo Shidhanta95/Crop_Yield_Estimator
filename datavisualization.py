@@ -94,7 +94,7 @@ def data_visualization():
         print(type(temp[0]))
         for x in temp:
             vals.append(int(x))
-        fig = ff.create_distplot(temp,group_labels=[i])
+        fig = ff.create_distplot([data[i].values],group_labels=[i])
         fig.update_layout(template='plotly_dark')
         #fig.update_layout(plot_bgcolor = "plotly_dark")
         fig.update_xaxes(showgrid=False,zeroline=False)
