@@ -31,7 +31,7 @@ pipeline{
     post{
        
         always {
-            archiveArtifacts artifacts: 'yield_df.csv', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'yield_final_df.csv', onlyIfSuccessful: true
         }
             }
 }

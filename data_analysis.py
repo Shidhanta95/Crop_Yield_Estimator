@@ -30,6 +30,7 @@ def dataAnalysis():
     dk=df.groupby(['Area','Item'])['hg/ha_yield'].mean().to_frame()
     dk.sort_values(by=['hg/ha_yield'],ascending=False)
     print(dk)
+    return df
 
 
 dataAnalysis()

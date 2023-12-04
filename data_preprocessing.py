@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from loading_data import loadData
+from data_analysis import dataAnalysis
 
 
 def outlierTreatment(df):
@@ -33,7 +33,7 @@ def outlierTreatment(df):
 
 
 def dataPrepocessing():
-    df = loadData()
+    df = dataAnalysis()
 
     x = df.columns[0]
     #drop column
@@ -50,9 +50,6 @@ def dataPrepocessing():
     for name in names:
         df[name].fillna(df[name].mode(), inplace = True)
 
-
-    #outlier treatment
-    df = outlierTreatment(df)
     return df
 
 
