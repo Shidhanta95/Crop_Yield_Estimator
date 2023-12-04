@@ -43,7 +43,7 @@ def featureEngineering():
     col = [df.columns[0],'Year','hg_ha_yield']
 
     #labels='hg/ha_yield'
-    Y = df['hg/ha_yield']
+    Y = df['hg_ha_yield']
     X_ = df.drop(col, axis=1)
 
     # extracting categorical columns
