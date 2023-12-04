@@ -5,9 +5,7 @@ from data_preprocessing import dataPrepocessing
 import numpy as np 
 import time
 
-t0 = time.time()
-code_block
-t1 = time.time()
+
 def outlierTreatment(df):
     # Outlier Treatment 
     # IQR
