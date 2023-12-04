@@ -88,7 +88,7 @@ def data_visualization():
         # a.append(fig)
     for i in col:
         count += 1
-        fig = ff.create_distplot([data[i].values],group_labels=[i])
+        fig = ff.create_distplot(int([data[i].values]),group_labels=[i])
         fig.update_layout(template='plotly_dark')
         #fig.update_layout(plot_bgcolor = "plotly_dark")
         fig.update_xaxes(showgrid=False,zeroline=False)
