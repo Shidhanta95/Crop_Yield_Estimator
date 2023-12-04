@@ -40,7 +40,7 @@ def featureEngineering():
     df = outlierTreatment(df)
 
     #delete this before uploading
-    col = [df.columns[0],'Year','hg/ha_yield']
+    col = [df.columns[0],'Year','hg_ha_yield']
 
     #labels='hg/ha_yield'
     Y = df['hg/ha_yield']
