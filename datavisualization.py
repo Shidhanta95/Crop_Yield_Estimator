@@ -77,7 +77,7 @@ def data_visualization():
     count = 0
     df = dataPrepocessing()
     data = df.select_dtypes("number").columns
-    col=list(data.columns)
+    col=len[data]
     for i in col:
         count += 1
         fig = px.box(data, y=i)
