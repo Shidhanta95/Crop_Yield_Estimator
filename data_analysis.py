@@ -27,8 +27,8 @@ def dataAnalysis():
         print(col, df[col].nunique())
 
 
-    dk=df.groupby(['Area','Item'])['hg/ha_yield'].mean().to_frame()
-    dk.sort_values(by=['hg/ha_yield'],ascending=False)
+    dk=df.groupby(['Area','Item'])['hg_ha_yield'].mean().to_frame()
+    dk.sort_values(by=['hg_ha_yield'],ascending=False)
     print(dk)
     return df
 
