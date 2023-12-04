@@ -90,7 +90,7 @@ def data_visualization():
         count += 1
         temp = [data[i].values]
         vals = []
-        print(type(temp))
+        print(type(temp[0]))
         for x in temp:
             vals.append(int(x))
         fig = ff.create_distplot(vals,group_labels=[i])
