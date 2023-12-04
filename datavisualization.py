@@ -90,23 +90,24 @@ def data_visualization():
         count += 1
         temp = [data[i].values]
         vals = []
+        print(type(temp))
         for x in temp:
             vals.append(int(x))
-        fig = ff.create_distplot(vals,group_labels=[i])
-        fig.update_layout(template='plotly_dark')
-        #fig.update_layout(plot_bgcolor = "plotly_dark")
-        fig.update_xaxes(showgrid=False,zeroline=False)
-        fig.update_yaxes(showgrid=False,zeroline=False)
-        fig.write_image(f"{count}_dist_{i}.jpg")
-        # a.append(fig)
-    y=data.corr().columns.tolist()
-    z=data.corr().values.tolist()
-    z_text = np.around(z, decimals=4) # Only show rounded value (full value on hover)
-    fig = ff.create_annotated_heatmap(z,x=y,y=y,annotation_text=z_text,colorscale=px.colors.sequential.Cividis_r,showscale=True)
-    fig.update_layout(template='plotly_dark')
-    count += 1
-    fig.write_image(f"{count}_heatmap.jpg")
-    # a.append(fig)
+    #     fig = ff.create_distplot(vals,group_labels=[i])
+    #     fig.update_layout(template='plotly_dark')
+    #     #fig.update_layout(plot_bgcolor = "plotly_dark")
+    #     fig.update_xaxes(showgrid=False,zeroline=False)
+    #     fig.update_yaxes(showgrid=False,zeroline=False)
+    #     fig.write_image(f"{count}_dist_{i}.jpg")
+    #     # a.append(fig)
+    # y=data.corr().columns.tolist()
+    # z=data.corr().values.tolist()
+    # z_text = np.around(z, decimals=4) # Only show rounded value (full value on hover)
+    # fig = ff.create_annotated_heatmap(z,x=y,y=y,annotation_text=z_text,colorscale=px.colors.sequential.Cividis_r,showscale=True)
+    # fig.update_layout(template='plotly_dark')
+    # count += 1
+    # fig.write_image(f"{count}_heatmap.jpg")
+    # # a.append(fig)
 
 
 
