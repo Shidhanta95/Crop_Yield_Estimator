@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder,MinMaxScaler
 from datavisualization import data_visualization
+from data_preprocessing import dataPrepocessing
 import numpy as np 
 
 def outlierTreatment(df):
@@ -34,8 +35,8 @@ def outlierTreatment(df):
 
 
 def featureEngineering():
-    df = data_visualization()
-    
+    #df = data_visualization()
+    df = dataPrepocessing()
         #outlier treatment
     df = outlierTreatment(df)
 
