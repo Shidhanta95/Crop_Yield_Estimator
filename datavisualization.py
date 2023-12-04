@@ -75,7 +75,8 @@ from PIL import Image
 # a =[]
 def data_visualization():
     count = 0
-    data = dataPrepocessing()
+    df = dataPrepocessing()
+    data = df.select_dtypes("number").columns
     col=list(data.columns)
     for i in col:
         count += 1
@@ -124,7 +125,7 @@ def data_visualization():
     # image_list.pop(0).save(r'./Student Performance Prediction#587.pdf', 'PDF',
     #                     save_all=True, append_images=image_list, resolution=100.0)  # TODO improve resolution
     
-    return data
+    return df
 
 data_visualization()
 
