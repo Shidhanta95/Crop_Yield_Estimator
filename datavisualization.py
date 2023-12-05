@@ -79,7 +79,9 @@ def data_visualization():
     c = [df_temp.columns[0],'Year','hg_ha_yield']
     df = df_temp.drop(c,axis=1)
     data = df.select_dtypes(include=["number"])
+    data = pd.DataFrame(data)
     col=list(data.columns)
+    print(col)
     t0 = time.time()
     for i in col:
         count += 1
@@ -88,30 +90,32 @@ def data_visualization():
         #fig.update_layout(plot_bgcolor = "plotly_dark")
         fig.update_xaxes(showgrid=False,zeroline=False)
         fig.update_yaxes(showgrid=False,zeroline=False)
-        fig.write_image(f"{count}_box_{i}.jpg")
+        # fig.write_image(f"{count}_box_{i}.jpg")
+        fig.show()
         # a.append(fig)
     t1 = time.time()
     t = t1-t0
     print("time taken for drawing box plot ",t)
 
-    # t0 = time.time()
-    # for i in col:
-    #     count += 1
-    #     # temp = [data[i].values.astype(np.int64)]
-    #     # vals = []
-    #     # print(type(temp[0]))
-    #     # for x in temp:
-    #     #     vals.append(int(x))
-    #     fig = ff.create_distplot([data[i].values],group_labels=[i])
-    #     fig.update_layout(template='plotly_dark')
-    #     #fig.update_layout(plot_bgcolor = "plotly_dark")
-    #     fig.update_xaxes(showgrid=False,zeroline=False)
-    #     fig.update_yaxes(showgrid=False,zeroline=False)
-    #     fig.write_image(f"{count}_dist_{i}.jpg")
-    #     # a.append(fig)
-    # t1 = time.time()
-    # t = t1-t0
-    # print("time taken for drawing dist ",t)
+    t0 = time.time()
+    for i in col:
+        count += 1
+        # temp = [data[i].values.astype(np.int64)]
+        # vals = []
+        # print(type(temp[0]))
+        # for x in temp:
+        #     vals.append(int(x))
+        fig = ff.create_distplot([data[i].values],group_labels=[i])
+        fig.update_layout(template='plotly_dark')
+        #fig.update_layout(plot_bgcolor = "plotly_dark")
+        fig.update_xaxes(showgrid=False,zeroline=False)
+        fig.update_yaxes(showgrid=False,zeroline=False)
+        # fig.write_image(f"{count}_dist_{i}.jpg")
+        # a.append(fig)
+        fig.show()
+    t1 = time.time()
+    t = t1-t0
+    print("time taken for drawing dist ",t)
 
     t0 = time.time()
     y=data.corr().columns.tolist()
@@ -120,13 +124,14 @@ def data_visualization():
     fig = ff.create_annotated_heatmap(z,x=y,y=y,annotation_text=z_text,colorscale=px.colors.sequential.Cividis_r,showscale=True)
     fig.update_layout(template='plotly_dark')
     count += 1
-    fig.write_image(f"{count}_heatmap.jpg")
+    # fig.write_image(f"{count}_heatmap.jpg")
+    fig.show()
     # a.append(fig)
     t1 = time.time()
     t = t1-t0
     print("time taken for drawing heatmap ",t)
 
-
+    # return df_temp
 
 
     # figures = a
@@ -141,7 +146,7 @@ def data_visualization():
     # image_list.pop(0).save(r'./Student Performance Prediction#587.pdf', 'PDF',
     #                     save_all=True, append_images=image_list, resolution=100.0)  # TODO improve resolution
     
-    return df_temp
+    
 
 data_visualization()
 
